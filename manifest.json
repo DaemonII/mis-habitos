@@ -2,7 +2,7 @@
   "name": "Mis Hábitos",
   "short_name": "Hábitos",
   "description": "Seguimiento de hábitos diarios",
-  "start_url": "/",
+  "start_url": "/mis-habitos/index.html",
   "display": "standalone",
   "background_color": "#0f0720",
   "theme_color": "#26215C",
