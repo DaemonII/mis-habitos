@@ -390,17 +390,21 @@
 
   .day-cell {
     width: 30px;
-    height: 38px;
+    height: 42px;
     cursor: pointer;
     transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
   }
 
-  .day-cell.done { background: var(--green-dim); }
-  .day-cell.not-done { background: var(--red-dim); }
+  .day-cell.done { background: #14532d; }
+  .day-cell.not-done { background: #450a0a; }
   .day-cell.future { background: transparent; cursor: default; }
 
-  .day-cell.done::after { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--green); margin: auto; margin-top: 15px; }
-  .day-cell.not-done::after { content: ''; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--red); margin: auto; margin-top: 15px; }
+  .day-cell.done::after { content: '✓'; color: #22c55e; font-weight: 700; font-size: 13px; }
+  .day-cell.not-done::after { content: '✗'; color: #ef4444; font-weight: 700; font-size: 13px; }
 
   .day-cell.today-col { box-shadow: inset 0 0 0 1px var(--purple); }
 
@@ -561,7 +565,8 @@ function pickEmoji(name) {
 
 // ── DATE UTILS ───────────────────────────────────────────────────────────────
 function todayKey() {
-  return new Date().toISOString().slice(0, 10);
+  const d = new Date();
+  return dateKey(d.getFullYear(), d.getMonth(), d.getDate());
 }
 
 function dateKey(y, m, d) {
